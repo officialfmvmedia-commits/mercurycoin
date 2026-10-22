@@ -1,0 +1,128 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>$MERCURY — The first coin minted from Mercury</title>
+<meta name="description" content="$MERCURY: a coin whose mint key is seeded from MESSENGER's final image of Mercury, an official NASA PDS archive file anyone can re-download and re-hash.">
+<meta name="theme-color" content="#0a0a0b">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png"><link rel="icon" href="favicon.ico"><link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<!-- TODO at deploy: make og/twitter image URLs absolute (https://<domain>/img/og.jpg) -->
+<meta property="og:type" content="website"><meta property="og:title" content="$MERCURY — The first coin minted from Mercury"><meta property="og:description" content="Seeded from the last image MESSENGER ever took. Don't trust us. Recompute it."><meta property="og:image" content="img/og.jpg">
+<meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="$MERCURY — The first coin minted from Mercury"><meta name="twitter:image" content="img/og.jpg">
+<link rel="stylesheet" href="style.css"></head><body>
+<canvas id="wind" aria-hidden="true"></canvas><div class="grain" aria-hidden="true"></div><div class="vig" aria-hidden="true"></div><div class="flare" aria-hidden="true"></div>
+<nav class="nav"><a href="#top" class="brand">$MERCURY</a><div><a href="#story">Story</a><a href="#descent">Descent</a><a href="#derive">Derivation</a><a href="#verify">Verify</a><a href="#token">Token</a><a href="#faq">FAQ</a><a class="xlink" href="#token" aria-label="$MERCURY on X">𝕏</a></div></nav>
+
+<header id="top" class="hero">
+  <div class="layer sky" data-speed="0.04"></div>
+  <div class="layer sun" data-speed="0.12"><i class="corona"></i><i class="core"></i></div>
+  <div class="layer limbglow" data-speed="0.2"></div>
+  <img class="layer planet" data-speed="0.2" src="img/hero-planet.webp" alt="Mercury's limb, from MESSENGER's global mosaic (NASA PIA15160), graded and lit from behind" fetchpriority="high">
+  <div class="layer grade"></div>
+  <div class="hero-txt" data-speed="-0.25">
+    <p class="mono kicker">MESSENGER · FINAL FRAME · 69.94°N 221.38°E</p>
+    <h1>$MERCURY</h1>
+    <p class="sub">The first coin minted from Mercury.</p>
+    <a class="cta" href="#story">Enter orbit <span class="arr">↓</span></a>
+  </div>
+  <div class="hero-hud mono" aria-hidden="true"><span>0.307–0.467 AU</span><span>DAYSIDE ≈ 430 °C</span><span>NIGHTSIDE ≈ −180 °C</span></div>
+</header>
+
+<section id="story" class="story">
+  <div class="wrap two">
+    <div><p class="mono kicker">01 — THE LAST LIGHT</p>
+    <h2>On April 30, 2015, a spacecraft took one last picture of Mercury. Eight hours later it became a crater.</h2>
+    <p>MESSENGER was the first spacecraft ever to orbit the innermost planet. For four years it circled a world scorched by a Sun that looks up to three times wider than it does from Earth, and it sent home more than 270,000 images.</p>
+    <p>Then it ran out of fuel. At 11:07:43 UTC, 28.9&nbsp;km above the floor of Jokai crater, its narrow-angle camera took a final frame. At 19:26 UTC it struck the surface at 3.9&nbsp;km/s.</p>
+    <p>That last frame is archived by NASA's Planetary Data System, byte for byte. <b>$MERCURY is the first coin whose mint key is seeded from it.</b> Not a mascot. A real photograph, hashed and folded into the keypair that creates the token.</p></div>
+    <div class="details"><figure><img src="img/detail0.jpg" alt="Crop of CN1072716050M, MESSENGER's final image of Mercury" loading="lazy"><figcaption class="mono">THE HASHED FRAME · CN1072716050M · 1.52 m/px</figcaption></figure>
+    <figure><img src="img/detail1.jpg" alt="Crop of MESSENGER frame CN1072716046M" loading="lazy"><figcaption class="mono">T−4 s · CN1072716046M</figcaption></figure>
+    <figure><img src="img/detail2.jpg" alt="Crop of MESSENGER frame CN1072716038M" loading="lazy"><figcaption class="mono">T−12 s · CN1072716038M</figcaption></figure></div>
+  </div>
+</section>
+
+<section class="flyover" id="descent">
+  <div class="sticky">
+    <p class="mono kicker fk">02 — THE FINAL 16 SECONDS</p>
+    <div class="track"><img id="strip" src="img/strip.jpg" alt="MESSENGER's last five MDIS narrow-angle frames, 4 seconds apart, April 30 2015"></div>
+    <div class="hud mono">
+      <div class="tl">MESSENGER / MDIS NAC<br><b id="hpid">CN1072716034M_IF_5</b></div>
+      <div class="tr">UTC <span id="htime">2015-04-30 11:07:27</span><br>FRAME <span id="hframe">1</span> / 5</div>
+      <div class="bl">ALT <span id="halt">23.09</span> KM · <span id="hpx">1.22</span> M/PX<br>LAT <span id="hlat">68.59</span>°N · LON <span id="hlon">220.07</span>°E</div>
+      <div class="br">SUN INCIDENCE <span id="hinc">74.3</span>°<br>DESCENT <span id="pct">0</span>%</div>
+      <div class="reticle"></div>
+    </div>
+  </div>
+</section>
+
+<section id="derive" class="derive">
+  <div class="wrap"><p class="mono kicker">03 — THE DERIVATION</p><h2>From the last photons to a keypair.</h2>
+  <ol class="steps">
+    <li><span class="n mono">I</span><h3>The image</h3><p><span class="mono t">CN1072716050M_IF_5.IMG</span>, 1,058,816 bytes, from NASA's PDS archive. Captured <span class="mono t">2015-04-30T11:07:43.368128</span> UTC.</p></li>
+    <li><span class="n mono">II</span><h3>SHA-256</h3><p class="hash mono" id="hash">…</p></li>
+    <li><span class="n mono">III</span><h3>+ Private entropy</h3><p>32 random bytes made offline on the minting machine. Only their hash is published before launch. Mixed with the Mercury hash through <span class="mono t">HKDF-SHA256</span>, labeled with the product ID and capture time.</p></li>
+    <li><span class="n mono">IV</span><h3>ed25519 keypair</h3><p>The 32-byte seed becomes a Solana keypair, exactly as solana-keygen does it. Its public key is the contract address.</p></li>
+  </ol>
+  <div class="spec mono">
+    <div><span>PRODUCT</span><b>CN1072716050M_IF_5 · MDIS NAC CDR · MESS-E/V/H-MDIS-4-CDR-CALDATA-V1.0</b></div>
+    <div><span>URL</span><b><a href="https://planetarydata.jpl.nasa.gov/img/data/messenger/MSGRMDS_2001/CDR/2015_120/CN1072716050M_IF_5.IMG" rel="noopener">planetarydata.jpl.nasa.gov/img/data/messenger/MSGRMDS_2001/CDR/2015_120/CN1072716050M_IF_5.IMG</a></b></div>
+    <div><span>SIZE</span><b>1,058,816 bytes</b></div>
+    <div><span>SHA-256</span><b>cec65107973de146a0dda7ee9fd30ccfec65554fcafc4f1230ccdb09c4ab7142</b></div>
+    <div><span>MD5 (PDS MD5.TAB)</span><b>7aac7b8b3aa04e3dd43a3572c9b67da6</b></div>
+    <div><span>SALT</span><b>MERCURY-MINT-v1</b></div>
+    <div><span>INFO</span><b>CN1072716050M_IF_52015-04-30T11:07:43.368128</b></div>
+    <div><span>COMMITMENT</span><b data-k="COMMIT" data-empty="AWAITING · published before launch">AWAITING · published before launch</b></div>
+    <div><span>MINT ADDRESS</span><b data-k="CA" data-empty="AWAITING CA">AWAITING CA</b></div>
+  </div></div>
+</section>
+
+<section id="verify" class="verify"><div class="wrap two">
+  <div><p class="mono kicker">04 — VERIFY IT YOURSELF</p><h2>No trust needed. Download the last image.</h2>
+  <p>Fetch the official file from NASA's Planetary Data System and hash it. You'll get the same 64 characters we did.</p>
+  <a class="btn" href="https://planetarydata.jpl.nasa.gov/img/data/messenger/MSGRMDS_2001/CDR/2015_120/CN1072716050M_IF_5.IMG" rel="noopener">Official PDS file ↗</a>
+  <pre class="mono code">$ curl -LO https://planetarydata.jpl.nasa.gov/img/data/messenger/MSGRMDS_2001/CDR/2015_120/CN1072716050M_IF_5.IMG
+$ sha256sum CN1072716050M_IF_5.IMG
+cec65107973de146a0dda7ee9fd30ccf
+ec65554fcafc4f1230ccdb09c4ab7142</pre></div>
+  <div class="cr"><h3>Commit, then reveal</h3>
+  <div class="st"><i data-s="COMMIT"></i><p><b>1 · Commit.</b> Before launch we publish sha256 of our private entropy. That locks it in; it can't be swapped later. <span class="mono stv" data-k="COMMIT" data-empty="AWAITING">AWAITING</span></p></div>
+  <div class="st"><i data-s="CA"></i><p><b>2 · Mint.</b> The Mercury hash + entropy derive the mint key. The token goes live on Solana. <span class="mono stv" data-k="CA" data-empty="AWAITING CA">AWAITING CA</span></p></div>
+  <div class="st"><i data-s="REVEAL"></i><p><b>3 · Reveal.</b> After launch the entropy is published. Anyone reruns HKDF and lands on the exact contract address. <span class="mono stv" data-k="REVEAL" data-empty="SEALED UNTIL LAUNCH">SEALED UNTIL LAUNCH</span></p></div>
+  <p class="dim small2">Receipt: <a data-href="COMMIT_URL" class="mono stv" data-empty="commit post · soon">commit post · soon</a></p></div>
+</div>
+<div class="wrap proof"><p class="mono kicker">RECOMPUTE, STEP BY STEP</p>
+<ol class="rsteps">
+<li>Download <span class="mono t">CN1072716050M_IF_5.IMG</span> from the PDS Imaging Node (link above). It is 1,058,816 bytes.</li>
+<li><span class="mono t">sha256</span> it. You get <span class="mono t">cec65107…ab7142</span>, the Mercury hash.</li>
+<li><span class="mono t">sha256</span> the revealed entropy bytes. It must equal the commitment published before launch.</li>
+<li>Run <span class="mono t">HKDF-SHA256(ikm = entropy ‖ mercury_hash, salt = "MERCURY-MINT-v1", info = "CN1072716050M_IF_52015-04-30T11:07:43.368128", L = 32)</span>.</li>
+<li>Use the 32-byte output as an Ed25519 seed. Its public key, in base58, is the $MERCURY contract address.</li></ol>
+<pre class="mono code"># pip install pynacl base58
+import hashlib, hmac, nacl.signing, base58
+ent = bytes.fromhex("<span class="hl" data-k="REVEAL" data-empty="&lt;ENTROPY · REVEALED AFTER LAUNCH&gt;">&lt;ENTROPY · REVEALED AFTER LAUNCH&gt;</span>")
+mh  = hashlib.sha256(open("CN1072716050M_IF_5.IMG","rb").read()).digest()
+assert mh.hex() == "cec65107973de146a0dda7ee9fd30ccfec65554fcafc4f1230ccdb09c4ab7142"
+assert hashlib.sha256(ent).hexdigest() == "<span class="hl" data-k="COMMIT" data-empty="&lt;COMMITMENT&gt;">&lt;COMMITMENT&gt;</span>"
+prk  = hmac.new(b"MERCURY-MINT-v1", ent + mh, hashlib.sha256).digest()
+seed = hmac.new(prk, b"CN1072716050M_IF_52015-04-30T11:07:43.368128" + b"\x01", hashlib.sha256).digest()
+print(base58.b58encode(bytes(nacl.signing.SigningKey(seed).verify_key)).decode())
+# -> <span class="hl" data-k="CA" data-empty="AWAITING CA">AWAITING CA</span></pre>
+<p class="dim">Self-test: with entropy <span class="mono t">00 01 02 … 1f</span> (a throwaway vector, never used for the mint) the script prints <span class="mono t">G34KduVxsrCf7DSMNPoTNjCb8CYCD8LL83gwU2oqvP2s</span>. Machine-readable record: <a href="proof.json">/proof.json</a></p>
+</div></section>
+
+<section id="token" class="token"><div class="wrap center">
+  <img class="disk" src="img/token-disk.webp" alt="" loading="lazy">
+  <p class="mono kicker">05 — THE TOKEN</p><h2 class="big">$MERCURY</h2>
+  <div class="ca mono"><span>CONTRACT</span><b id="ca" data-k="CA" data-empty="AWAITING CA">AWAITING CA</b><button class="copy" id="copyca" hidden>Copy</button></div>
+  <div class="btns"><a class="btn dis" id="buy" aria-disabled="true">pump.fun · soon</a><a class="btn dis" id="xbtn" aria-disabled="true">X · soon</a></div>
+  <p class="mono tagl">Don't trust us. Recompute it.</p>
+</div></section>
+
+<section id="faq" class="faq"><div class="wrap narrow"><p class="mono kicker">06 — FAQ</p><h2>Questions from Earth.</h2>
+<details><summary>Is the image real?</summary><p>Yes. It is MESSENGER's final image, MDIS narrow-angle frame EN1072716050M (MESSENGER image ID 8422953, released by NASA as PIA19448). The hashed file is the calibrated version, CN1072716050M_IF_5.IMG, on the PDS volume MSGRMDS_2001. Its MD5 matches the archive's own MD5.TAB.</p></details>
+<details><summary>Why can't you pick a nicer address?</summary><p>The image was fixed in 2015. Our entropy is locked by a hash we publish before launch. Once both are committed there is exactly one possible address, and anyone can recompute it after the reveal.</p></details>
+<details><summary>Can someone steal the key from the image?</summary><p>No. The image is public; the 32 bytes of entropy are not. Without them, finding the seed means searching 2<sup>256</sup> possibilities. The entropy is only revealed after the mint exists and its authorities are revoked, so the key controls nothing by then.</p></details>
+<details><summary>What happens if NASA re-processes the file?</summary><p>Archived PDS products are stable, but a future re-release would have different bytes. We mirror the exact file on this site, and the SHA-256 above is the reference.</p></details>
+<details><summary>Why now?</summary><p>ESA and JAXA's BepiColombo is scheduled to enter orbit around Mercury on 21 November 2026, the first spacecraft there since MESSENGER. $MERCURY is minted from the last light the first one sent home.</p></details>
+<details><summary>Is this affiliated with NASA or anyone?</summary><p>No. It uses public-domain data. $MERCURY is a memecoin with no intrinsic value or expectation of return.</p></details>
+</div></section>
+
+<footer class="foot mono"><p>Imagery: NASA/Johns Hopkins University Applied Physics Laboratory/Carnegie Institution of Washington · MESSENGER MDIS CN1072716034M–CN1072716050M · global mosaic PIA15160</p><p>Archive: NASA Planetary Data System, Imaging Node · MSGRMDS_2001 · <a href="files/CN1072716050M_IF_5.IMG">mirror of the hashed file</a></p><p class="dim">Not affiliated with NASA, ESA, JHUAPL or any space agency. $MERCURY is a memecoin with no intrinsic value or expectation of return.</p></footer>
+<script src="config.js"></script><script src="main.js"></script></body></html>

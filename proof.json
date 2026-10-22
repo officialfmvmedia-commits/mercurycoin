@@ -1,0 +1,23 @@
+{
+ "scheme": "MERCURY-MINT-v1",
+ "source": {
+  "product_id": "CN1072716050M_IF_5",
+  "source_edr": "EN1072716050M",
+  "description": "MESSENGER MDIS NAC calibrated I/F, the final image returned by MESSENGER (image ID 8422953, NASA PIA19448)",
+  "data_set_id": "MESS-E/V/H-MDIS-4-CDR-CALDATA-V1.0",
+  "volume": "MSGRMDS_2001",
+  "url": "https://planetarydata.jpl.nasa.gov/img/data/messenger/MSGRMDS_2001/CDR/2015_120/CN1072716050M_IF_5.IMG",
+  "start_time_utc": "2015-04-30T11:07:43.368128",
+  "bytes": 1058816,
+  "sha256": "cec65107973de146a0dda7ee9fd30ccfec65554fcafc4f1230ccdb09c4ab7142",
+  "md5": "7aac7b8b3aa04e3dd43a3572c9b67da6",
+  "md5_source": "MSGRMDS_2001/INDEX/MD5.TAB"
+ },
+ "salt": "MERCURY-MINT-v1",
+ "info": "CN1072716050M_IF_52015-04-30T11:07:43.368128",
+ "derivation": "seed = HKDF-SHA256(ikm = entropy || mercury_hash, salt, info, L = 32); Ed25519 fromSeed; pubkey base58 = mint",
+ "entropy_commitment_sha256": null,
+ "entropy_revealed": null,
+ "pubkey": null,
+ "status": "awaiting commitment"
+}
