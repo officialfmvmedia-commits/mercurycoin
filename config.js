@@ -1,9 +1,9 @@
 // $MERCURY launch config. Fill these in at launch; every blank renders an honest AWAITING / SOON state.
 window.MERCURY = {
-  CA: '25dWcJxAVvT5WNEj8LmB9BbNPk6j3ykM7NY6h7ADUZus',            // mint address (base58). Empty = "AWAITING CA"
+  CA: '9AWq1k2Ld1SLEprWiKyTppXgVknpTED3CUZtjBsW11ot',            // mint address (base58). Empty = "AWAITING CA"
   BUY_URL: '',       // defaults to https://pump.fun/coin/<CA> once CA is set
   X_URL: '',         // e.g. https://x.com/<handle>
-  COMMIT: '55737de3c28e270da4c6b92c70df1dcc4fec1d1d30f12d841f4f64f94a2f4385',        // sha256(entropy), 64 hex. Published BEFORE launch
+  COMMIT: '3ec11f85ffba5e6dc0e9c23d1636c1476223e58ad0226f79d15b02aca0f0810e',        // sha256(entropy), 64 hex. Published BEFORE launch
   COMMIT_URL: '',    // link to the post that published the commitment (the receipt)
-  REVEAL: '8d6c1493068c11fcce978d2b1530b666a3105db3e60d2e32d62e06d64e9d4452'         // the 32-byte entropy, 64 hex. Only AFTER the mint exists and authorities are revoked
+  REVEAL: ''         // the 32-byte entropy, 64 hex. Only AFTER the mint exists and authorities are revoked
 };
