@@ -97,3 +97,40 @@ figure:first-child img{aspect-ratio:16/9}figcaption{margin-top:.5rem;opacity:.55
 .hero-txt .cobie .q{font-style:normal;font-family:Menlo,ui-monospace,monospace;font-size:.7em;letter-spacing:.24em;text-transform:uppercase;color:#c9a46a;margin-right:.4em}
 .hero-txt .what{margin:.7rem 0 1.6rem;font-size:clamp(1.1rem,2vw,1.6rem);font-weight:300;letter-spacing:.14em;color:#fff6e6;text-shadow:0 0 22px rgba(255,200,120,.35)}
 @media (max-width:640px){.hero-txt .cobie{max-width:30ch}.hero-txt .paired{letter-spacing:.3em}}
+
+/* Cobie X card */
+.hero-txt .xcard{display:block;margin:1.3rem auto 0;max-width:420px;text-align:left;text-decoration:none;color:#f3ece0;padding:13px 16px 11px;border:1px solid rgba(255,210,140,.22);border-radius:14px;background:linear-gradient(180deg,rgba(28,22,14,.62),rgba(10,8,6,.72));backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);box-shadow:0 20px 60px rgba(0,0,0,.45),0 0 40px rgba(255,180,80,.08);transition:border-color .3s,transform .3s}
+.hero-txt .xcard:hover{border-color:rgba(255,210,140,.5);transform:translateY(-2px)}
+.xc-head{display:flex;align-items:center;gap:10px}
+.xc-head img{width:36px;height:36px;border-radius:50%;object-fit:cover}
+.xc-id{display:flex;flex-direction:column;line-height:1.15;font-size:.9rem}
+.xc-id b{font-weight:600}.xc-id i{font-style:normal;color:rgba(243,236,224,.55);font-size:.82rem}
+.xc-x{margin-left:auto;font-size:1.05rem;opacity:.75}
+.xc-reply{display:block;margin-top:9px;font-size:.78rem;color:rgba(243,236,224,.5)}
+.xc-text{display:block;margin-top:3px;font-size:1.1rem;line-height:1.4}
+.xc-meta{display:block;margin-top:9px;font-family:Menlo,ui-monospace,monospace;font-size:.64rem;letter-spacing:.12em;color:#c9a46a;text-transform:uppercase}
+/* alchemy flow */
+.hero-txt .alch{list-style:none;display:flex;align-items:stretch;justify-content:center;gap:10px;margin:0 auto 1.6rem;padding:0;max-width:860px}
+.alch li{flex:1;text-align:left;padding:10px 12px;border:1px solid rgba(255,210,140,.16);border-radius:10px;background:rgba(12,9,6,.55);backdrop-filter:blur(6px)}
+.alch li b{display:block;font-size:.68rem;letter-spacing:.32em;color:#ffd27a;margin-bottom:5px}
+.alch li span{display:block;font-family:Helvetica Neue,Helvetica,Arial,sans-serif;font-size:.78rem;line-height:1.45;color:rgba(243,236,224,.78);letter-spacing:.01em}
+.alch li.arw{flex:0 0 auto;border:0;background:none;backdrop-filter:none;display:flex;align-items:center;padding:0;color:#e9b65c;font-size:1rem}
+@media (max-width:760px){.hero-txt .alch{flex-direction:column;max-width:340px;gap:6px}.alch li.arw{justify-content:center;transform:rotate(90deg)}}
+/* hero fit: more content now */
+.hero-txt{justify-content:flex-start;padding:14vh 4vw 0}
+.hero-txt h1{font-size:clamp(3rem,9vw,8.6rem)}
+.hero-txt .sub{margin:1rem 0 0}
+.hero-txt .kicker{margin-bottom:1rem}
+.hero-txt .what{margin:1.1rem 0 1.1rem}
+.hero-txt .alch{margin-bottom:1.3rem}
+@media (max-width:760px){
+ .hero{height:auto;min-height:100vh}
+ .hero-txt{position:relative;inset:auto;padding:13vh 5vw 30vh}
+ .hero-txt h1{font-size:clamp(2.4rem,12vw,4rem)}
+ .hero-txt .kicker{font-size:.6rem;letter-spacing:.18em}
+ .hero-txt .sub{font-size:.72rem;letter-spacing:.16em}
+ .hero-hud{bottom:5vh}
+}
+#ca,[data-k]{text-transform:none!important;letter-spacing:.04em}
+#ca.await,[data-k].await{text-transform:uppercase!important}
+@media (min-width:761px){.hero-hud{bottom:2.5vh}}
